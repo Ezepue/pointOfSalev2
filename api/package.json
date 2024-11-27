@@ -2,7 +2,6 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^7.2.7",
     "@types/node": "^8.0.29",
-    "axios": "^0.18.0",
     "nodemon": "^1.17.5",
     "ts-node": "3.3.0",
     "typescript": "2.5.2"
@@ -28,8 +27,12 @@
   },
   "scripts": {
     "dev:api": "nodemon",
+    "prebuild": "yarn build:api",
     "build:api": "./node_modules/.bin/tsc",
     "prod:serve": "node build/index.js",
     "start": "cross-env IS_PROD=true && yarn && yarn run build:api && yarn run prod:serve"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
